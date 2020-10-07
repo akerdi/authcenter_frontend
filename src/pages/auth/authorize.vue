@@ -2,7 +2,8 @@
   .m-authorize
     .container
       .box
-        el-button(@click="authorize") 授权
+        .layer
+          el-button(@click="authorize") 授权
 
 </template>
 
@@ -42,13 +43,16 @@ export default Vue.extend({
       .box {
         margin: 0 auto;
         margin-top: 10vh;
-        min-height: 410px;
         max-width: 400px;
-        background-color: rgba($color: #555555, $alpha: 0.1);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
+        max-height: 410px;
+        min-height: 100px;
+        background-color: rgba($color: #555555, $alpha: 0.05);
+        .layer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+        }
       }
     }
   }

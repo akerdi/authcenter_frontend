@@ -7,7 +7,7 @@ Vue.use(Router)
 
 import { otherRoutes } from "./otherRoutes"
 import { authRoutes } from "./authRoutes"
-
+import { adminRoutes } from "./adminRoutes"
 const indexRoutes = [
   {
     path: '/',
@@ -27,6 +27,7 @@ const indexRoutes = [
 ]
 
 const routes = [
+  ...adminRoutes,
   ...authRoutes,
   ...indexRoutes,
   ...otherRoutes

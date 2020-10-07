@@ -1,6 +1,7 @@
 <template lang="pug">
   .m-user-home
-
+    .sections
+      span 开发者很懒，什么都没有留下
 </template>
 
 <script lang="ts">
@@ -15,13 +16,6 @@ export default Vue.extend({
 .m-user-home {
   .sections {
     padding: 40px;
-  }
-  .createPartition {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    bottom: 48px;
-    right: 48px;
   }
 }
 

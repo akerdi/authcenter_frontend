@@ -6,7 +6,7 @@
       .g-warpper
         router-view
       .g-ft
-        .f-fc-ccc.f-fs-14.f-tac.f-m-b-10 © 2013-{{ new Date().getFullYear() }} 上海弘连网络科技有限公司
+        .f-fc-ccc.f-fs-14.f-tac.f-m-b-10 © 2015-{{ new Date().getFullYear() }} 登录服务
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
 .g-bd{
   flex: auto;
   overflow: auto;
-  padding: 0 20px;
+  padding: 0 0px;
   height: 100%;
 }
 .g-warpper{
