@@ -12,10 +12,18 @@ export const authRoutes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/pages/login.vue'),
+    component: () => import('@/pages/auth/login.vue'),
     meta: {
       access: 'anon',
       title: '登录'
+    }
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("@/pages/auth/register.vue"),
+    meta: {
+      title: "注册"
     }
   },
 ]
