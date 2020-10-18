@@ -9,6 +9,7 @@
         el-table-column(label="用户邮箱" prop="email")
         el-table-column(label="用户名称" prop="username")
         el-table-column(label="用户昵称" prop="nickname")
+        el-table-column(label="用户权限" prop="roles")
 </template>
 
 <script>

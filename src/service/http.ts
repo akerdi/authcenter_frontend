@@ -5,11 +5,11 @@ import Store from '@/store'
 import { USER_SIGNOUT } from '@/store/mutation-types'
 import router from '../router'
 
-axios.defaults.timeout = 5000
-
 // development 本地转发
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = '/api'
+} else {
+  axios.defaults.timeout = 5000
 }
 
 axios.defaults.headers['X-XSRF-TOKEN'] = Cookies['XSRF-TOKEN']
