@@ -11,7 +11,12 @@
             a(:title="'secret:' + scope.row.client_secret") {{scope.row.client_id}}
         el-table-column(label="应用名称" prop="title")
         el-table-column(label="应用地址" prop="url")
+        el-table-column(label="")
+          template(slot-scope="scope")
+            el-button(icon="el-icon-edit" @click="editApp(scope.row)")
     AddApp(v-if="addAppDatas.visible" :addAppDatas="addAppDatas"
+      @formVisibleFunc="formVisibleFunc")
+    EditApp(v-if="editAppDatas.visible" :editAppDatas="editAppDatas"
       @formVisibleFunc="formVisibleFunc")
 </template>
 
@@ -20,10 +25,11 @@ import { getApps } from '@/service/admin'
 import callAsync from '@/lib/awaitCall'
 
 import AddApp from '@/components/manage/addApp.vue'
+import EditApp from '@/components/manage/editApp.vue'
 
 export default {
   components: {
-    AddApp
+    AddApp, EditApp
   },
   name: "manage-apps",
   data () {
@@ -32,14 +38,23 @@ export default {
       loading: false,
       addAppDatas: {
         visible: false,
-        addForm: null
+        form: null
+      },
+      editAppDatas: {
+        visible: false,
+        form: null
       }
     }
   },
   methods: {
     async createApp() {
       this.addAppDatas.visible = true
-      this.addAppDatas.addForm = {}
+      this.addAppDatas.form = {}
+    },
+    async editApp(app) {
+      console.log("apap:: ", app)
+      this.editAppDatas.visible = true
+      this.editAppDatas.form = app
     },
     async getApps() {
       this.loading = true
@@ -49,8 +64,12 @@ export default {
       if (!res.data) return
       this.apps = res.data.apps
     },
-    formVisibleFunc(shouldReload) {
-      this.addAppDatas.visible = false
+    // type [0 === create] [1 === edit]
+    formVisibleFunc(type=0, shouldReload=false) {
+      switch (type) {
+        case 0: this.addAppDatas.visible = false; break;
+        default: this.editAppDatas.visible = false; break;
+      }
       if (shouldReload) this.getApps()
     }
   },
