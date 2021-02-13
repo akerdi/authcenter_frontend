@@ -54,7 +54,7 @@ export default {
     async editApp(app) {
       console.log("apap:: ", app)
       this.editAppDatas.visible = true
-      this.editAppDatas.form = app
+      this.editAppDatas.form = _.assign({}, app)
     },
     async getApps() {
       this.loading = true

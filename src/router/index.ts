@@ -52,7 +52,8 @@ router.beforeEach((to, from, next) => {
         if (isLoggedIn) return next({ name: 'home' })
       } else if (meta.access && !Store.getters['user/authorize'](meta.access)) {
         if (!isLoggedIn) {
-          return next({ name: 'login' })
+          // if (to.name === "authorize") return next()
+          return next({ name: 'login', query: { redirect: to.fullPath } })
         } else {
           Message('没有权限访问此页面')
           return

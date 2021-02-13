@@ -34,7 +34,8 @@ export default Vue.extend({
       loading: false,
       formRule: {
 
-      }
+      },
+      redirect: null
     }
   },
   methods: {
@@ -43,11 +44,14 @@ export default Vue.extend({
       const [err, result] = await callAsync(login(this.form))
       this.loading = false
       if (err) return
+      if (this.redirect) return window.location = this.redirect
       window.location = "/"
     }
   },
   mounted () {
-
+    console.log("@@@@@@", this.$route.query)
+    const { redirect } = this.$route.query
+    if (redirect) this.redirect = redirect
   }
 })
 </script>

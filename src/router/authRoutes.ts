@@ -5,7 +5,7 @@ export const authRoutes = [
     name: "authorize",
     component: () => import("@/pages/auth/authorize.vue"),
     meta: {
-      access: "public",
+      access: "anon",
       title: "oauth授权"
     }
   },
