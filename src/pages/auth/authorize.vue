@@ -20,6 +20,7 @@ export default Vue.extend({
       formRule: {
 
       },
+
     }
   },
   methods: {
